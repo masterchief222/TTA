@@ -4,13 +4,7 @@ FROM python:slim-bullseye
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install the necessary packages
-# RUN apt-get update && apt-get install -y --no-install-recommends \
-#     ca-certificates \
-#     build-essential \
-#     libncurses5-dev \
-#     libgpm-dev \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install iputils-ping -y
 
 # Set the TERM environment variable
 ENV TERM=xterm

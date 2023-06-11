@@ -57,12 +57,10 @@ def ping():
     ip = input("enter ip you want to ping: ")
     print(f"pinging {ip}...")
     subprocess.call(['sh', "ping.sh", ip])
-    # Add your logic for Task 2 here
 
 
 def task3_function():
     print("Performing Task 3...")
-    # Add your logic for Task 3 here
 
 
 if __name__ == "__main__":
