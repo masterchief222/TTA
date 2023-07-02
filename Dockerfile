@@ -1,5 +1,5 @@
 # Use the official Debian 10 as the base image
-FROM python:slim-buster
+FROM python:slim-bullseye
 
 # Set the working directory inside the container
 WORKDIR /app
