@@ -7,10 +7,10 @@ Brief description of the project.
 ### Method 1: Clone from Git, Build Locally, and Run
 
 1. Clone the project repository from Git:\
-   git clone <repository_url>
+   git clone https://github.com/masterchief222/TTA.git
 
 2. Navigate to the project directory:\
-   cd project_directory
+   cd <project_directory>
 
 3. Build the Docker image locally:\
    docker build -t tta_project:1.0 .

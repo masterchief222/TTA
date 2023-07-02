@@ -1,5 +1,5 @@
 # Use the official Debian 10 as the base image
-FROM python:slim-bullseye
+FROM python:slim-buster
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -19,4 +19,4 @@ COPY src/requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Define the command to run your Python script
-CMD ["python3", "-i", "main.py"]
+CMD ["python3", "main.py"]
