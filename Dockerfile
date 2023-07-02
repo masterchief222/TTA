@@ -4,7 +4,7 @@ FROM python:slim-buster
 # Set the working directory inside the container
 WORKDIR /app
 
-RUN apt-get update && apt-get install iputils-ping -y
+RUN apt-get update && apt-get install iputils-ping dnsutils systemd -y
 
 # Set the TERM environment variable
 ENV TERM=xterm

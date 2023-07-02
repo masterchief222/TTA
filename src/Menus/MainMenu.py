@@ -12,7 +12,7 @@ def display_main_menu():
         "others menu": Other,
         "Exit": sys.exit
     }
-    show(main_menu)
+    show(main_menu,"Main menu")
 
 
 def phase2():

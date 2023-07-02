@@ -10,7 +10,7 @@ def display_others_menu():
         "ping": ping,
         "Back": "Exit"
     }
-    show(main_menu)
+    show(main_menu, "others functionality menu")
 
 
 def current_dir():
