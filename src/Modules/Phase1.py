@@ -143,29 +143,68 @@ def clear_name_servers():
     except IOError:
         print_error(f"Error reading or writing file '{file_path}'.")
 
+def toggle_eth0_configuration():
+    interface_file = "/etc/network/interfaces"
 
-# def restart_name_server_services():
-#     service_name = "name_server"
+    try:
+        with open(interface_file, "r") as file:
+            lines = file.readlines()
 
-#     try:
-#         # Check if the service exists
-#         check_service = subprocess.run(
-#             ["systemctl", "is-active", service_name], capture_output=True, text=True)
+        eth0_index = -1
+        for i, line in enumerate(lines):
+            if line.startswith("iface eth0"):
+                eth0_index = i
+                break
 
-#         if check_service.returncode == 0:
-#             # Restart the name server service
-#             result = subprocess.run(
-#                 ["systemctl", "restart", service_name], capture_output=True, text=True)
+        if eth0_index != -1:
+            eth0_line = lines[eth0_index]
+            if "dhcp" in eth0_line:
+                # Current configuration is DHCP, change to static
+                lines[eth0_index] = "iface eth0 inet static\n"
+            else:
+                # Current configuration is static, change to DHCP
+                lines[eth0_index] = "iface eth0 inet dhcp\n"
 
-#             if result.returncode == 0:
-#                 print("Name server services restarted successfully.")
-#             else:
-#                 print("Failed to restart name server services.")
-#                 print("Error:", result.stderr)
-#         else:
-#             print(f"The '{service_name}' service does not exist.")
+        with open(interface_file, "w") as file:
+            file.writelines(lines)
 
-#     except FileNotFoundError:
-#         print(f"Failed to restart name server services. 'systemctl' command not found.")
-#     except Exception as e:
-#         print("An error occurred:", str(e))
+        print_info("eth0 configuration toggled successfully.")
+    except IOError:
+        print_error(f"Error reading or writing file '{interface_file}'.")
+def add_dns_permanently():
+    interface_file = "/etc/network/interfaces"
+
+    try:
+        with open(interface_file, "r") as file:
+            lines = file.readlines()
+
+        eth0_index = -1
+        for i, line in enumerate(lines):
+            if line.startswith("iface eth0"):
+                eth0_index = i
+                break
+
+        if eth0_index != -1 and "inet static" in lines[eth0_index]:
+            current_dns = get_current_name_servers(False)
+            while True:
+                name_server = input("Enter the name server to add: ").strip()
+                if name_server.lower() == "exit":
+                    return
+                if current_dns is not None and name_server in current_dns:
+                    print_warning("Duplicate detected!")
+                    return
+                validation = is_valid_ip(name_server)
+                if validation:
+                    break
+
+            dns_line = f"    dns-nameservers {name_server}\n"
+            lines.insert(eth0_index + 1, dns_line)
+
+            with open(interface_file, "w") as file:
+                file.writelines(lines)
+
+            print_info(f"DNS server {name_server} added to eth0 configuration.")
+        else:
+            print_warning("Cannot add DNS permanently. eth0 interface is not configured with static IP.")
+    except IOError:
+        print_error(f"Error reading or writing file '{interface_file}'.")
