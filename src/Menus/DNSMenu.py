@@ -1,7 +1,7 @@
 
 import sys
 from Modules.Display import show
-from Modules.Phase1 import add_name_server, clear_name_servers, delete_name_server, get_current_name_servers, toggle_eth0_configuration, add_dns_permanently
+from Modules.DNS import add_name_server, clear_name_servers, delete_name_server, get_current_name_servers, toggle_eth0_configuration, add_dns_permanently
 
 
 def display_DNS_menu():

@@ -1,9 +1,6 @@
 import os
-
 import readchar
 import colorama
-
-
 def display_menu(selected_row: int, menu_options: dict):
     max_len = max(len(item) for item in menu_options.keys())
 

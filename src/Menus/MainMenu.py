@@ -3,6 +3,7 @@ import sys
 from Modules.Display import show
 from Menus.OthersMenu import display_others_menu as Other
 from Menus.PhaseOneMenu import display_phase_one_menu as phase1
+from Menus.PhaseTwoMenu import display_phase_two_menu as phase2
 
 
 def display_main_menu():
@@ -12,8 +13,4 @@ def display_main_menu():
         "others menu": Other,
         "Exit": sys.exit
     }
-    show(main_menu,"Main menu")
-
-
-def phase2():
-    print("phase 2--")
+    show(main_menu, "Main menu")

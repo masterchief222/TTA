@@ -2,6 +2,7 @@
 import subprocess
 import sys
 from Modules.Display import show
+import netifaces
 
 
 def display_others_menu():
@@ -10,6 +11,7 @@ def display_others_menu():
         "ping": ping,
         "print_resolve_conf": print_resolve_conf,
         "print_interface_conf": print_interface_conf,
+        "all interfaces": print_all_interfaces,
         "Back": "Exit"
     }
     show(main_menu, "others functionality menu")
@@ -54,3 +56,22 @@ def print_interface_conf():
         print(f"Interface file '{interface_file}' not found.")
     except IOError:
         print(f"Error reading file '{interface_file}'.")
+
+
+def print_all_interfaces():
+    print(all_interfaces())
+
+
+def all_interfaces():
+    interfaces = netifaces.interfaces()
+    return interfaces
+
+
+def restart_networking_service():
+    try:
+        subprocess.run(['sudo', 'systemctl', 'restart',
+                       'networking'], check=True)
+    except subprocess.CalledProcessError as e:
+        print(
+            f"Error: Failed to restart networking service. Return code: {e.returncode}")
+        print(e.output.decode())
