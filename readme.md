@@ -6,12 +6,15 @@ Brief description of the project.
 
 ### Method 1: Clone from Git, Build Locally, and Run
 
-1. Clone the project repository from Git:\
+1. Clone the project repository from Git:
+```bash
    git clone https://github.com/masterchief222/TTA.git
+```
 
-2. Navigate to the project directory:\
+2. Navigate to the project directory
+```bash
    cd <project_directory>
-
+```
 3. Build the Docker image locally:\
    docker build -t tta_project:1.0 .
 
@@ -23,6 +26,30 @@ Brief description of the project.
 1. Pull the Docker image from Docker Hub:
 
 2. Run the Docker container:
+
+### Method3: clone the project and Run run.sh
+
+1. Clone the project repository from Git:
+```bash
+   git clone https://github.com/masterchief222/TTA.git
+```
+
+2. Navigate to the project directory
+```bash
+   cd <project_directory>
+```
+3. 
+```bash
+chmod +x docker_script.sh
+```
+
+4. 
+```bash
+sudo ./docker_script.sh
+```
+# mind map
+
+![mind map](./project-mindmap.png)
 
 # document
 
