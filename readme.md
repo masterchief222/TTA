@@ -26,15 +26,15 @@ Brief description of the project.
 
 # document
 
-- [IP](#IP.py)
-- [DNS](#DNS.py)
-- [Validation](#Validation.py)
-- [Hostname](#Hostname.py)
-- [Route](#Route.py)
+- [IP](#IP)
+- [DNS](#DNS)
+- [Validation](#Validation)
+- [Hostname](#Hostname)
+- [Route](#Route)
 - [Menu](#Menus)
-- [Display](#Display.py)
+- [Display](#Display)
 
-# IP.py
+# IP
 
 ## assign_temporary_ip
 
@@ -71,7 +71,7 @@ change the content of /etc/network/interfaces
 **Returns**
 None
 
-# DNS.py
+# DNS
 
 ## get_current_name_servers
 
@@ -145,7 +145,7 @@ change the content of /etc/network/interfaces
 **Returns**
 None
 
-# Validation.py
+# Validation
 
 ## is_valid_ip
 
@@ -179,7 +179,7 @@ use `regex` library to achive this
 **Returns**
 True | False
 
-# Hostname.py
+# Hostname
 
 ## change_hostname
 
@@ -223,7 +223,7 @@ hostname
 **Returns**
 None
 
-# Route.py
+# Route
 
 ## add_route
 
@@ -314,7 +314,7 @@ contain the dictionary for x menu and call the show().
 
 - a **dictionary** that has **command name** in the key and **function** for value.
 
-# Display.py
+# Display
 
 This module provides functions for displaying menus and handling user input.
 
