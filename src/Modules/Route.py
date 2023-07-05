@@ -90,9 +90,3 @@ def delete_route(destination_ip, gateway):
     except subprocess.CalledProcessError as e:
         print(f"Failed to delete route: {e}")
 
-# Example usage:
-# Get the list of routing policies
-# routing_policies = get_routing_policies()
-# print("Routing Policies:")
-# for destination_ip, gateway in routing_policies:
-#     print(f"Destination IP: {destination_ip}, Gateway: {gateway}")

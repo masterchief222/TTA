@@ -1,6 +1,7 @@
 import subprocess
 import os
 from colorama import Fore, Style
+from Modules.Validation import is_valid_hostname
 
 
 def print_info(message):
@@ -17,6 +18,9 @@ def print_error(message):
 
 def change_hostname():
     new_hostname = input("Enter the new hostname: ")
+    if is_valid_hostname(new_hostname):
+        print_error("hostname is not valid")
+        return
     try:
         # Write the new hostname to the /etc/hostname file
         with open("/etc/hostname", "w") as file:
