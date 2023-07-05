@@ -4,6 +4,7 @@ from Menus.DNSMenu import display_DNS_menu
 import Modules.Phase1
 from Menus.HostnameMenu import display_Hostname_menu
 from Menus.IpMenu import display_IP_menu
+from Menus.RouteMenu import display_route_menu
 import sys
 
 
@@ -12,11 +13,7 @@ def display_phase_one_menu():
         "DNS menu": display_DNS_menu,
         "Hostname menu": display_Hostname_menu,
         "IP menu": display_IP_menu,
-        "route menu": route,
+        "route menu": display_route_menu,
         "back": "Exit"
     }
     show(main_menu, "Phase 1 menu")
-
-
-def route():
-    pass

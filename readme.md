@@ -23,3 +23,40 @@ Brief description of the project.
 1. Pull the Docker image from Docker Hub:
 
 2. Run the Docker container:
+
+# IP.py
+
+## assign_temporary_ip
+
+**Purpose:**
+This function allows the user to assign a temporary IP address to a network interface.
+
+**Command:**
+
+```shell
+sudo ip addr add [IP] dev [interface]
+```
+
+**Parameters**
+
+- IP: The IP address to assign.
+- interface: The network interface to assign the IP address to.
+
+**Returns**
+None
+
+## assign_permanent_ip
+
+**Purpose**
+This function allows the user to assign a permanent IP address to a network interface by modifying the network configuration file.
+
+**Command**
+change the content of /etc/network/interfaces
+
+**Parameters**
+
+- IP: The IP address to assign.
+- interface: The network interface to assign the IP address to.
+
+**Returns**
+None
