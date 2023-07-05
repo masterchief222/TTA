@@ -26,13 +26,66 @@ Brief description of the project.
 
 # document
 
+- [Display](#Display)
 - [IP](#IP)
 - [DNS](#DNS)
 - [Validation](#Validation)
 - [Hostname](#Hostname)
 - [Route](#Route)
 - [Menu](#Menus)
-- [Display](#Display)
+
+# Display
+
+This module provides functions for displaying menus and handling user input.
+
+## Functions
+
+### `display_menu(selected_row: int, menu_options: dict) -> None`
+
+Displays the menu options with the selected row highlighted.
+
+- `selected_row` (int): The index of the selected row.
+- `menu_options` (dict): A dictionary mapping menu item names to their corresponding functions.
+
+### `perform_task(task: str, menu_options: dict) -> Union[str, None]`
+
+Executes the selected task.
+
+- `task` (str): The name of the task to be performed.
+- `menu_options` (dict): A dictionary mapping menu item names to their corresponding functions.
+
+Returns:
+
+- str or None: If the task is not a "Exit" task, returns the input prompt. Otherwise, returns None to exit the current menu level.
+
+### `show(menu: dict, menu_name: str = "") -> None`
+
+Displays the menu and handles user input.
+
+- `menu` (dict): A dictionary mapping menu item names to their corresponding functions.
+- `menu_name` (str, optional): The name of the menu. Defaults to an empty string.
+
+### `show_delete_menu(menu: list) -> Union[str, None]`
+
+Displays the delete menu and handles user input for deletion confirmation.
+
+- `menu` (list): A list of menu item names.
+
+Returns:
+
+- str or None: Returns the selected menu item if confirmed for deletion, None otherwise.
+
+### `display_delete_menu(selected_row: int, menu_options: list) -> None`
+
+Displays the delete menu options with the selected row highlighted.
+
+- `selected_row` (int): The index of the selected row.
+- `menu_options` (list): A list of menu item names.
+
+## Dependencies
+
+- `readchar`: Reads a character from the console.
+- `colorama`: Allows the use of ANSI escape sequences to display colored text.
 
 # IP
 
@@ -313,56 +366,3 @@ contain the dictionary for x menu and call the show().
 **Parameters**
 
 - a **dictionary** that has **command name** in the key and **function** for value.
-
-# Display
-
-This module provides functions for displaying menus and handling user input.
-
-## Functions
-
-### `display_menu(selected_row: int, menu_options: dict) -> None`
-
-Displays the menu options with the selected row highlighted.
-
-- `selected_row` (int): The index of the selected row.
-- `menu_options` (dict): A dictionary mapping menu item names to their corresponding functions.
-
-### `perform_task(task: str, menu_options: dict) -> Union[str, None]`
-
-Executes the selected task.
-
-- `task` (str): The name of the task to be performed.
-- `menu_options` (dict): A dictionary mapping menu item names to their corresponding functions.
-
-Returns:
-
-- str or None: If the task is not a "Exit" task, returns the input prompt. Otherwise, returns None to exit the current menu level.
-
-### `show(menu: dict, menu_name: str = "") -> None`
-
-Displays the menu and handles user input.
-
-- `menu` (dict): A dictionary mapping menu item names to their corresponding functions.
-- `menu_name` (str, optional): The name of the menu. Defaults to an empty string.
-
-### `show_delete_menu(menu: list) -> Union[str, None]`
-
-Displays the delete menu and handles user input for deletion confirmation.
-
-- `menu` (list): A list of menu item names.
-
-Returns:
-
-- str or None: Returns the selected menu item if confirmed for deletion, None otherwise.
-
-### `display_delete_menu(selected_row: int, menu_options: list) -> None`
-
-Displays the delete menu options with the selected row highlighted.
-
-- `selected_row` (int): The index of the selected row.
-- `menu_options` (list): A list of menu item names.
-
-## Dependencies
-
-- `readchar`: Reads a character from the console.
-- `colorama`: Allows the use of ANSI escape sequences to display colored text.
