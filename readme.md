@@ -24,6 +24,16 @@ Brief description of the project.
 
 2. Run the Docker container:
 
+# document
+
+- [IP](#IP.py)
+- [DNS](#DNS.py)
+- [Validation](#Validation.py)
+- [Hostname](#Hostname.py)
+- [Route](#Route.py)
+- [Menu](#Menus)
+- [Display](#Display.py)
+
 # IP.py
 
 ## assign_temporary_ip
